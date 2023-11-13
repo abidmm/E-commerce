@@ -16,6 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                
                 @if (Auth::user()->role_id)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('productlist')" :active="request()->routeIs('productlist')">
@@ -34,12 +35,13 @@
                         {{ __('cart') }}
                     </x-nav-link>
                 </div>
-                @endif
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('myorders')" :active="request()->routeIs('myorders')">
                         {{ __('orders') }}
                     </x-nav-link>
                 </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->

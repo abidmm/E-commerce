@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Notifications\checkoutNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class OrderController extends Controller
 {
@@ -60,6 +62,18 @@ class OrderController extends Controller
                 $order->save();
                 $cart->delete();
             }
+
+           
+            $checkout = Order::where('order_no',$orderNo)->get();
+
+            $temp = '';
+            foreach($checkout as $check){
+               $temp .= $check->title . ' ';
+            }
+            
+            //mailing with orderno after checkout
+            $to = 'abidmeethal@gmail.com';           
+            Notification::route('mail', $to)->notify(new checkoutNotification($orderNo,$temp));
 
             return response()->json([
                 'status' => true,
