@@ -34,7 +34,7 @@
                                 <div class="flex flex-row gap-6 items-center">
                                     <div class="w-28 h-28">
                                         <img class="w-full h-full"
-                                            src="https://static.netshoes.com.br/produtos/tenis-adidas-coreracer-masculino/09/NQQ-4635-309/NQQ-4635-309_zoom1.jpg?ts=1675445414&ims=544x">
+                                            src="{{asset('storage/'.$item->product->image)}}">
                                     </div>
                                     <div class="flex flex-col gap-1">
                                         <p class="text-lg text-gray-800 font-semibold">{{ $item->product->title }}</p>
@@ -115,14 +115,14 @@
                     @foreach ($final_taxpercentage as $taxper => $tax_amount)
                         <div class="flex flex-row justify-between">
                             <p class="text-gray-600">VAT({{ $taxper }}%)</p>
-                            <p class="text-end font-bold">{{ $tax_amount }}</p>
+                            <p class="text-end font-bold text-white">{{ $tax_amount }}</p>
                         </div>
                         <hr class="bg-gray-200 h-0.5">
                     @endforeach
                     <div class="flex flex-row justify-between">
                         <p class="text-gray-600">Total</p>
                         <div>
-                            <p class="text-end font-bold"> {{ $final_amount }}</p>
+                            <p class="text-end font-bold text-white"> {{ $final_amount }}</p>
                         </div>
                     </div>
                     <div class="flex gap-2">

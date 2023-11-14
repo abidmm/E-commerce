@@ -23,7 +23,7 @@ $products = Product::latest()->get();
                                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                                         <a class="block relative h-48 rounded overflow-hidden">
                                             <img alt="ecommerce" class="object-cover object-center w-full h-full block"
-                                                src="https://dummyimage.com/420x260">
+                                                src="{{asset('storage/'.$product->image)}}">
                                         </a>
                                         <div class="mt-4">
                                             <h2 class="text-yellow-500 title-font text-lg font-medium">
